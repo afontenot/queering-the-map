@@ -3,7 +3,7 @@
 This is a completely static preservation / restoration of the
 [queeringthemap.com](https://queeringthemap.com) site, which is
 currently offline. This is intended as a harmless experiment, and also
-serves as a backup in case Queering the map permanently disappears.
+serves as a backup in case **Queering the Map** permanently disappears.
 
 I made decisions that should hopefully allow this version to perform
 very well, with minimal resource requirements, as detailed below.

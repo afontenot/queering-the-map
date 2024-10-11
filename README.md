@@ -1,12 +1,15 @@
 # Queering the Map (static archive)
 
 This is a completely static preservation / restoration of the
-[queeringthemap.com](https://queeringthemap.com) site, which is
-currently offline. This is intended as a harmless experiment, and also
-serves as a backup in case **Queering the Map** permanently disappears.
+[queeringthemap.com](https://queeringthemap.com) site, which was
+offline for about a month in June 2024.
 
-I made decisions that should hopefully allow this version to perform
-very well, with minimal resource requirements, as detailed below.
+This is intended as a harmless experiment, and also serves as a backup
+in case **Queering the Map** ever permanently disappears.
+
+In addition, due to the way the data is loaded, this version has much
+better performance than the original QtM which may enable users on low
+power devices to access it.
 
 ## Recovering the Data
 

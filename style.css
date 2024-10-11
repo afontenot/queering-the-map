@@ -17,6 +17,9 @@ div.flag {
     box-shadow: 0 0 5px #5555;
     margin-bottom: 6px;
 }
+img.pinkmarker {
+    filter: hue-rotate(112deg);
+}
 .fr {
     float: right;
 }

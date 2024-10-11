@@ -2,7 +2,7 @@
 
 const minZoom = 2;
 const maxZoom = 19;
-const maxMomentsPerLevel = 10;
+const maxMomentsPerLevel = 25;
 const momentsUrl = "zoom.json";
 const map = L.map("map").setView([0, 0], 2);
 const seed = (Math.random()*2**32)>>>0;
@@ -12,14 +12,14 @@ let visibleMoments = new Map();
 
 function sfc32(a, b, c, d) {
     return function() {
-      a |= 0; b |= 0; c |= 0; d |= 0;
-      let t = (a + b | 0) + d | 0;
-      d = d + 1 | 0;
-      a = b ^ b >>> 9;
-      b = c + (c << 3) | 0;
-      c = c << 21 | c >>> 11;
-      c = c + t | 0;
-      return (t >>> 0) / 4294967296;
+        a |= 0; b |= 0; c |= 0; d |= 0;
+        let t = (a + b | 0) + d | 0;
+        d = d + 1 | 0;
+        a = b ^ b >>> 9;
+        b = c + (c << 3) | 0;
+        c = c << 21 | c >>> 11;
+        c = c + t | 0;
+        return (t >>> 0) / 4294967296;
     }
 }
 
@@ -73,6 +73,7 @@ const refresh = function (newMoments) {
         if (!visibleMoments.has(momentID)) {
             const moment = newMoments.get(momentID);
             const newMarker = L.marker([moment.latitude, moment.longitude]).addTo(map);
+            newMarker._icon.classList.add("pinkmarker");
             newMarker.bindPopup(moment["description"].replaceAll("\n", "<br>"));
             visibleMoments.set(momentID, newMarker);
         }
@@ -98,7 +99,7 @@ const reload = function () {
         for (let i = minBoxLon; i <= maxBoxLon; i++) {
             for (let j = minBoxLat; j <= maxBoxLat; j++) {
                 const chosenMoments = getMoments(maxMomentsPerLevel, i, j, z);
-                console.log(z, i, j, chosenMoments.length);
+                // console.log(z, i, j, chosenMoments.length);
                 for (const moment of chosenMoments) {
                     newMoments.set(moment["id"], moment);
                 }
